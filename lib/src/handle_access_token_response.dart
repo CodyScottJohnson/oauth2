@@ -62,7 +62,7 @@ Credentials handleAccessTokenResponse(http.Response response, Uri tokenEndpoint,
 
     // TODO(nweiz): support the "mac" token type
     // (http://tools.ietf.org/html/draft-ietf-oauth-v2-http-mac-01)
-    if (!['bearer','user access token'].containers((parameters['token_type'] as String).toLowerCase())) {
+    if (!['bearer','user access token'].contains((parameters['token_type'] as String).toLowerCase())) {
       throw FormatException(
           '"$tokenEndpoint": unknown token type "${parameters['token_type']}"');
     }
